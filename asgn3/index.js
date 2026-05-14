@@ -169,7 +169,7 @@ function initMaze() {
   for (let i = 0; i < MAP_SIZE; i++) {
     map[i] = [];
     for (let j = 0; j < MAP_SIZE; j++) {
-      map[i][j] = 1; // start fully walled
+      map[i][j] = 1;
     }
   }
 }
@@ -194,7 +194,6 @@ function generateMaze() {
     while (stack.length > 0) {
         let [x, z] = stack[stack.length - 1];
 
-        // find unvisited neighbors
         let neighbors = [];
 
         for (let [dx, dz] of directions) {
@@ -217,7 +216,6 @@ function generateMaze() {
             let [nx, nz, dx, dz] =
                 neighbors[Math.floor(Math.random() * neighbors.length)];
 
-            // knock down wall between cells
             map[x + dx / 2][z + dz / 2] = 0;
             map[nx][nz] = 0;
 
@@ -233,7 +231,7 @@ function pickRandomExit() {
 
     if (validExits.length === 0) {
         console.warn("No valid exit candidates found!");
-        return getRandomOpenCell(); // fallback safety
+        return getRandomOpenCell();
     }
 
     return validExits[Math.floor(Math.random() * validExits.length)];
@@ -250,7 +248,6 @@ function getRandomOpenCell() {
         }
     }
 
-    // safety check
     if (openCells.length === 0) {
         console.log("No open cells found!");
         return { x: 1, z: 1 };
