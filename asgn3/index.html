@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Assignment 3</title>
+    </head>
+    <body onload="main()">
+        <canvas id="webgl3" width="1000" height="600">
+            Please use a browser that supports "canvas"
+        </canvas>
+        <div id="timer" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-family: monospace; z-index: 10;"></div>
+        <div id="gameOverScreen" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; font-family: monospace; text-align: center; display: none; z-index: 20;">YOU WIN<br><div id="finalTime"></div></div>
+        
+        <script src="../lib/webgl-utils.js"></script>
+        <script src="../lib/cuon-utils.js"></script>
+        <script src="../lib/cuon-matrix-cse160.js"></script>
+        <script src="shaders.js"></script>
+        <script src="cube.js"></script>
+        <script src="camera.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
