@@ -20,17 +20,20 @@ window.addEventListener('keyup', (event) => {
 });
 
 window.updateCamera = function() {
+    window.camera.getWorldDirection(direction);
+    right.crossVectors(direction, up).normalize();
+
     if (keys['w']) {
-        window.camera.position.z -= cameraSpeed;
+        window.camera.position.addScaledVector(direction, cameraSpeed);
     }
     if (keys['s']) {
-        window.camera.position.z += cameraSpeed;
+        window.camera.position.addScaledVector(direction, -cameraSpeed);
     }
     if (keys['a']) {
-        window.camera.position.x -= cameraSpeed;
+        window.camera.position.addScaledVector(right, -cameraSpeed);
     }
     if (keys['d']) {
-        window.camera.position.x += cameraSpeed;
+        window.camera.position.addScaledVector(right, cameraSpeed);
     }
     if (keys['q']) {
         window.camera.position.y += cameraSpeed;
